@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSU-Bioinfomatics Group</title>
+<meta name="robots" content="all" />
+<meta name="keywords" content="CSU，Bioinformatic" />
+<meta name="description" content="CSU，Bioinformatic。" />
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/webmain.css" rel="stylesheet" type="text/css" />
+<link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="css/expension.css" rel="stylesheet" type="text/css" />
+<link href="css/friendLink.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.KinSlideshow-1.2.1.js"></script>
+<script type="text/javascript" src="scripts/webtry_roll.js"></script>
+<script type="text/javascript" src="scripts/ddsmoothmenu.js"></script>
+<script type="text/javascript">
+ddsmoothmenu.init({
+	mainmenuid: "MainMenu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+</script>
+<script type="text/javascript">
+var g_aData=
+[
+	'点击可查看软件详细说明，and 提供下载 ^_^!',
+];
+
+var g_oTimerHide=null;
+
+window.onload=function ()
+{
+	var aLi=document.getElementById('content').getElementsByTagName('li');
+	
+	bindTopic(aLi);
+};
+
+function bindTopic(aElement)
+{
+	var i=0;
+	
+	for(i=0;i<aElement.length;i++)
+	{
+		aElement[i].miaovIndex=i;
+		aElement[i].onmouseover=function (ev){showTopic(this.miaovIndex, window.event || ev);};
+		aElement[i].onmouseout=function (){hideTopic();};
+		aElement[i].onmousemove=function (ev)
+		{
+			var oEvent=window.event || ev;
+			setPosition(oEvent.clientX, oEvent.clientY);
+		};
+	}
+}
+
+function showTopic(index, oEvent)
+{
+	var oTopic=document.getElementById('topic');
+	
+	if(g_oTimerHide)
+	{
+		clearTimeout(g_oTimerHide);
+	}
+	
+	oTopic.getElementsByTagName('div')[1].innerHTML=g_aData[0];
+	oTopic.style.display='block';
+	
+	setPosition(oEvent.clientX, oEvent.clientY);
+}
+
+function hideTopic()
+{
+	var oTopic=document.getElementById('topic');
+	
+	if(g_oTimerHide)
+	{
+		clearTimeout(g_oTimerHide);
+	}
+	g_oTimerHide=setTimeout
+	(
+		function ()
+		{
+			oTopic.style.display='none';
+		},50
+	);
+}
+
+function setPosition(x, y)
+{
+	var top=document.body.scrollTop || document.documentElement.scrollTop;
+	var left=document.body.scrollLeft || document.documentElement.scrollLeft;
+	
+	x+=left;
+	y+=top;
+	
+	var oTopic=document.getElementById('topic');
+	var l=x+20;
+	var t=y-(oTopic.offsetHeight-20);
+	var bRight=true;
+	var iPageRight=left+document.documentElement.clientWidth;
+	
+	if(l+oTopic.offsetWidth>iPageRight)
+	{
+		bRight=false;
+		
+		l=x-(oTopic.offsetWidth+20);
+		oTopic.getElementsByTagName('div')[0].className='adorn_r';
+	}
+	else
+	{
+		oTopic.getElementsByTagName('div')[0].className='adorn';
+	}
+	
+	oTopic.style.left=l+'px';
+	oTopic.style.top=t+'px';
+}
+</script>
+<style>
+#topic { width: 270px; background: #fff; padding: 3px; border-top: 2px solid #818181; border-right: 1px solid #818181; border-bottom: 2px solid #818181; border-left: 1px solid #818181; position: absolute; top: 100px; left: 200px; }
+#topic .adorn { width: 7px; height: 11px; overflow: hidden; background: url(images/adorn.gif); position: absolute; bottom: 15px; left: -7px; }
+#topic .adorn_r { width: 7px; height: 11px; overflow: hidden; background: url(images/adorn_r.gif); position: absolute; bottom: 15px; right: -7px; }
+#topic .inner_html { padding: 10px; line-height: 20px; font-size: 12px; color: #666; text-indent: 24px; font-family: arial; }
+#topic .inner_html a { color: #990000; font-weight: bold; text-decoration: none; border-bottom: 1px dotted #990000; }
+#topic .inner_html a:hover { border-bottom: 2px solid #990000; }
+</style>
+</head>
+<body>
+<div id="topic" style="display: none; z-index:2">
+	<div class="adorn"></div>
+	<div class="inner_html"></div>
+</div>
+
+<div id="wrapper">
+    <div class="top">
+    <img src="images/logo.gif" width="650" height="90" alt="CSU Bioinformatics Group" />
+    <div id="lang"><img src="images/gb.png" width="45" height="45" alt="visits" /><span class="STYLE1">Visits: 100</span></div>
+  </div>
+  <div id="MainMenu" class="ddsmoothmenu">
+		<ul>
+		  <li><a href="index.html" title="Home Page"><span>Home</span></a></li>
+		  <li><a href="members.html" title="Group Members"><span>Group Members</span></a></li>
+		  <li><a href="project.html" title="Projects"><span>Projects</span></a></li>
+		  <li><a href="achievements.html" title="Achievements"><span>Achievements</span></a></li>
+		  <li><a href="download.html" title="Download" id="menu_selected"><span>Download</span></a></li>
+		  <li><a href="contact.html" title="Contact Us"><span>Contact</span></a></li>
+		  <!--<li><a href="news.html" title="Contact Us"><span>Contact</span></a></li>
+		  <li><a href="guestbook.html" title="留言反馈"><span>1</span></a></li>
+		  <li><a href="http://www.netgather.com" target="_blank" title="网聚网"><span>网聚网</span></a></li>-->
+		</ul>
+  	</div>
+<script type="text/javascript">
+$(function(){
+    $("#banner").KinSlideshow({
+            moveStyle:"right",
+            titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0.7},
+            titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
+            btn:{btn_bgColor:"#2d2d2d",btn_bgHoverColor:"#1072aa",btn_fontColor:"#FFF",btn_fontHoverColor:"#FFF",btn_borderColor:"#4a4a4a",btn_borderHoverColor:"#1188c0",btn_borderWidth:1}
+    });
+})
+</script>
+  <div id="banner">
+    <a href="#"><img src="images/banner01.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+    <a href="#"><img src="images/banner02.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+    <a href="#"><img src="images/banner03.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+  </div>
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span>Download</div>
+            
+	  <div class="wrap">
+			<ul class="works" id="content">
+				<li><a href="software2.html" title="点击下载"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611032067186718.jpg"/></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="software2.html"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/2011061103170236236.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="software3.html"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031134093409.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031086798679.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>				
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611032067186718.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/2011061103170236236.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031134093409.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031086798679.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031134093409.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="box"><div class="imgthumb"><span class="thumb_shadow_right"><img src="uploadfile/20110611031086798679.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+			</ul>
+ 		</div>
+	    
+    </div>
+    <div class="page-left">
+      <div class="index-newproducts">
+        <h2><span>Tools Downloag</span></h2>
+        <div id="LeftMenu" class="ddsmoothmenu-v">
+          <ul>
+		    <li><a href="software2.html" title="Software_1"><span>Software_1</span></a></li>
+			<li><a href="software2.html" title="Software_1"><span>Software_2</span></a></li>
+			<li><a href="software3.html" title="Software_1"><span>Software_3</span></a></li>
+			<li><a href="software2.html" title="Software_1"><span>Software_4</span></a></li>
+			<li><a href="software2.html" title="Software_1"><span>Software_5</span></a></li>
+			<li><a href="software3.html" title="Software_1"><span>Software_6</span></a></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+		ddsmoothmenu.init({
+			mainmenuid: "LeftMenu", //Menu DIV id
+			orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+			classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+			//customtheme: ["#804000", "#482400"],
+			contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+			})
+        </script>
+      </div>
+      
+      <div class="left-contact">
+        <h2><span>联系我们</span></h2>
+        <div class="xsnazzy">
+			<b class="xtop"><b class="xb1"></b><b class="xb2 color_a">
+			</b><b class="xb3 color_a"></b><b class="xb4 color_a"></b></b>
+			<div class="xboxcontent">
+				<h1 class="color_a"><a href="http://www.csu.edu.cn/" target="_blank">中南大学</a></h1>
+				<p>Central South University</p>
+			</div>
+			<b class="xbottom"><b class="xb4"></b><b class="xb3"></b>
+			<b class="xb2"></b><b class="xb1"></b></b>
+		</div>
+   		<div class="xsnazzy">
+			<b class="xtop"><b class="xb1"></b><b class="xb2 color_a">
+			</b><b class="xb3 color_a"></b><b class="xb4 color_a"></b></b>
+			<div class="xboxcontent">
+				<h1 class="color_a"><a href="http://202.197.66.228/portal/root/molnet_shbh/index.jsp" target="_blank">分子网络功能注释系统</a></h1>
+				<p>1.生物实验数据在线统计学检验分析。<br />2.生物实验数据代谢通路、表达调控等全方位注释信息。<br />3.提供多种信息结果显示，有多种直观图形化的结果显示。</p>
+			</div>
+			<b class="xbottom"><b class="xb4"></b><b class="xb3"></b>
+			<b class="xb2"></b><b class="xb1"></b></b>
+		</div>
+		<div class="xsnazzy">
+			<b class="xtop"><b class="xb1"></b><b class="xb2 color_a">
+			</b><b class="xb3 color_a"></b><b class="xb4 color_a"></b></b>
+			<div class="xboxcontent">
+				<h1 class="color_a"><a href="http://202.197.66.228/portal/root/data_analysis/index.jsp" target="_blank">生物数据分析系统</a></h1>
+				<p>1.高通量数据分析、显著性分析、聚类分析、相关分析、主成分分析<br />2.SNP分析、Hardy-Weinberg平衡、LD分析、单体型分析<br />3.医学统计分析、假设检验、方差分析、分参数检验、生存分析、回归分析等。</p>
+			</div>
+			<b class="xbottom"><b class="xb4"></b><b class="xb3"></b>
+			<b class="xb2"></b><b class="xb1"></b></b>
+		</div>
+      </div>
+    </div>
+  </div>
+    <div id="copyright"> Copyright ©2004-2011&nbsp;<a href="http://www.netgather.com" title="上海网聚化工有限公司">Central South University www.csu.edu.cn</a> All Rights Reserved.
+  </div>
+</div>
+
+
+
+</body>
+</html>

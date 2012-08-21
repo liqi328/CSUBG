@@ -1,0 +1,17 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span><a href="0">News</a> >> </div>
+      <div class="page-products">
+     	<p><b>{{ news_list.publishDate}} -　{{ news_list.title }}</b></p><br />
+		{{news_list.content}}
+      </div>
+    </div>
+    <div class="page-left">
+
+      {% include 'includes/friendlink.html' %}
+    </div>
+  </div>
+  
+{% include 'includes/footer.html' %}

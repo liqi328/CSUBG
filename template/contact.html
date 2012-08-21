@@ -1,0 +1,86 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span>Contact</div>
+      <div class="page-guestbook">
+<script type="text/javascript">
+function check()
+{
+	if(document.guestbook.Guest_Name.value=="")
+	{
+		alert("请填写您的姓名");
+		document.guestbook.Guest_Name.focus();
+		return false
+	}
+	if(document.guestbook.Guest_Email.value=="")
+	{
+		alert("请填写邮件地址");
+		document.guestbook.Guest_Email.focus();
+		return false
+	}
+	if(document.guestbook.Content.value=="")
+	{
+		alert("请填写反馈内容");
+		document.guestbook.Content.focus();
+		return false
+	}
+	if(document.guestbook.checkcode.value=="")
+	{
+		alert("请填写验证码");
+		document.guestbook.checkcode.focus();
+		return false
+	}
+	if(document.guestbook.checkcode.value.length<4)
+	{
+		alert("验证码必须为4位");
+		document.guestbook.checkcode.focus();
+		return false;
+	}
+	//var re = /^[0-9]+.?[0-9]*$/;//判断字符串是否为数字
+	var re = /^[1-9]+[0-9]*]*$/;//判断字符串是否为正整数
+	if (!re.test(document.guestbook.checkcode.value))
+	{
+		alert("验证码必须是数字");
+		document.guestbook.checkcode.focus();
+		return false;
+	}
+	 
+	return true;
+}
+</script>
+      <form method="post" action="./contact_save" name="guestbook" id="guestbook" onSubmit="return check()">
+      <dl class="clearfix">
+      <dt>Your Name：</dt>
+      <dd><input name="name" type="text" id="Guest_Name" /><span>*</span></dd>
+      <dt>Your Email：</dt>
+      <dd><input name="email" type="text" id="Guest_Email" /><span>*</span></dd>
+      <dt>Message：</dt>
+      <dd><textarea name="message" cols="" rows="" class="Content" id="Content"></textarea></dd>
+      <dt>验证码：</dt>
+      <dd><input name="checkcode" type="text" id="checkcode" maxlength="4" autocomplete="off" /><img src="images/getnum.gif" alt="点击刷新" align="absmiddle" style="cursor:pointer;" /><span>*</span></dd>
+      </dl>
+      <p><input name="submit" type="submit" id="submit" value="提交信息" /></p>
+      </form>
+      </div>
+    </div>
+    <div class="page-left">
+      
+      <div class="index-search">
+        <h2><span>联系我们</span></h2>
+        <p><span>地址: </span>Room 302, Computer Building<br />
+          Central South University<br />
+          Changsha, Hunan,P. R. China
+          <br />
+          <span>邮编: </span>410083
+          <br />
+          <span>联系人: </span>LQ<br />
+          <span>电话: </span>0731-68888888<br />
+          <span>传真: </span>0731-68888888<br />
+          <span>手机: </span>13688888888<br />
+        <span>邮箱: </span>csu@csu.edu.cn</p>
+      </div>
+    </div>
+  </div>
+    
+{% include 'includes/footer.html' %}

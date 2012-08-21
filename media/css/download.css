@@ -1,0 +1,6 @@
+#topic { width: 270px; background: #fff; padding: 3px; border-top: 2px solid #818181; border-right: 1px solid #818181; border-bottom: 2px solid #818181; border-left: 1px solid #818181; position: absolute; top: 100px; left: 200px; }
+#topic .adorn { width: 7px; height: 11px; overflow: hidden; background: url(../images/adorn.gif); position: absolute; bottom: 15px; left: -7px; }
+#topic .adorn_r { width: 7px; height: 11px; overflow: hidden; background: url(../images/adorn_r.gif); position: absolute; bottom: 15px; right: -7px; }
+#topic .inner_html { padding: 10px; line-height: 20px; font-size: 12px; color: #666; text-indent: 24px; font-family: arial; }
+#topic .inner_html a { color: #990000; font-weight: bold; text-decoration: none; border-bottom: 1px dotted #990000; }
+#topic .inner_html a:hover { border-bottom: 2px solid #990000; }

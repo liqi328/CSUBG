@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSU Bioinformatics Group</title>
+<meta name="robots" content="all" />
+<meta name="keywords" content="CSU，Bioinformatics" />
+<meta name="description" content="CSU，BioInfomatics。" />
+<link href="{{ MEDIA_URL }}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/webmain.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/expension.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/friendLink.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/table.css" rel="stylesheet" type="text/css" />
+{% ifequal header_menu_selected 'members'%} 
+<link href="{{ MEDIA_URL }}css/members.css" rel="stylesheet" type="text/css" />
+{% endifequal %}
+{% ifequal header_menu_selected 'project'%} 
+<link href="{{ MEDIA_URL }}css/project.css" rel="stylesheet" type="text/css" />
+{% endifequal %}
+{% ifequal header_menu_selected 'achievements'%} 
+<link href="{{ MEDIA_URL }}css/achievements.css" rel="stylesheet" type="text/css" />
+{% endifequal %}
+
+<link href="{{ MEDIA_URL }}css/master.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/layout.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/font.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.KinSlideshow-1.2.1.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/webtry_roll.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+ddsmoothmenu.init({
+	mainmenuid: "MainMenu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+</script>
+<script type="text/javascript">
+function pucker_show(name,no,hiddenclassname,showclassname) {
+    for (var i=1 ;i<7 ;i++ )
+    {
+        document.getElementById(name+i).className=hiddenclassname;
+    }
+    document.getElementById(name+no).className=showclassname;
+}
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {color: #000099}
+-->
+</style>
+</head>
+<body>
+<div id="wrapper">
+    <div class="top">
+    	<img src="{{ MEDIA_URL }}images/logo.gif" width="650" height="90" alt="CSU Bioinformatics Group" />
+    	<div id="lang"><a href="#"><img src="{{ MEDIA_URL }}images/gb.gif" width="16" height="11" alt="English" />English</a></div>
+  	</div>
+  	<div id="MainMenu" class="ddsmoothmenu">
+		<ul>
+		  <li><a href="/csubg/index.html" title="Home Page" {% ifequal header_menu_selected 'index'%} id="menu_selected"{% endifequal %}><span>Home</span></a></li>
+		  <li><a href="/csubg/members.html" title="Group Members" {% ifequal header_menu_selected 'members'%} id="menu_selected"{% endifequal %}><span>Group Members</span></a></li>
+		  <li><a href="/csubg/project.html" title="Project" {% ifequal header_menu_selected 'project'%} id="menu_selected"{% endifequal %}><span>Projects</span></a></li>
+		  <li><a href="/csubg/achievements.html" title="Achievements" {% ifequal header_menu_selected 'achievements'%} id="menu_selected"{% endifequal %}><span>Achievemets</span></a></li>
+		  <li><a href="/csubg/download.html" title="Download" {% ifequal header_menu_selected 'download'%} id="menu_selected"{% endifequal %}><span>Download</span></a></li>
+		  <li><a href="/csubg/contact.html" title="Contact Us" {% ifequal header_menu_selected 'contact'%} id="menu_selected"{% endifequal %}><span>Contact</span></a></li>
+		  <!--<li><a href="news.html" title="Contact Us"><span>Contact</span></a></li>
+		  <li><a href="guestbook.html" title="留言反馈"><span>1</span></a></li>
+		  <li><a href="http://www.netgather.com" target="_blank" title="网聚网"><span>网聚网</span></a></li>-->
+		</ul>
+  	</div>
+	<script type="text/javascript">
+	$(function(){
+		$("#banner").KinSlideshow({
+				moveStyle:"right",
+				titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0.7},
+				titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
+				btn:{btn_bgColor:"#2d2d2d",btn_bgHoverColor:"#1072aa",btn_fontColor:"#FFF",btn_fontHoverColor:"#FFF",btn_borderColor:"#4a4a4a",btn_borderHoverColor:"#1188c0",btn_borderWidth:1}
+		});
+	})
+	</script>
+  <div id="banner">
+    <a href="#"><img src="{{ MEDIA_URL }}images/banner01.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+    <a href="#"><img src="{{ MEDIA_URL }}images/banner02.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+    <a href="#"><img src="{{ MEDIA_URL }}images/banner03.jpg" alt="为生物信息学中关键与热点问题提供新的理论基础与研究方法，以推动我国生物信息学研究以及计算机基础理论研究的发展！" width="950" height="152" /></a>
+  </div>

@@ -1,0 +1,268 @@
+/* 字号---------------------------------------------------------------------------------------------开始 */
+.zh12 {
+	font-size: 12px;
+}
+.zh14 {
+	font-size: 14px;
+}
+.zh16 {
+	font-size: 16px;
+}
+/* 字号---------------------------------------------------------------------------------------------结束 */
+/* 字效果---------------------------------------------------------------------------------------------开始 */
+.zc {
+	font-weight: bold;
+}
+.zxt {
+	font-style: italic;
+}
+.zdel {
+	text-decoration: line-through;
+}
+.zxx {
+	text-decoration: underline;
+}
+.zsx {
+	text-decoration: overline;
+}
+.zdx {
+	text-transform: uppercase;
+}
+.zxiaox {
+	text-transform: lowercase;
+}
+/* 字效果---------------------------------------------------------------------------------------------结束 */
+/* 字行高---------------------------------------------------------------------------------------------开始 */
+.zg20 {
+	line-height: 20px;
+}
+.zg22 {
+	line-height: 22px;
+}
+.zg24 {
+	line-height: 24px;
+}
+.zg30 {
+	line-height: 30px;
+}
+/* 字行高---------------------------------------------------------------------------------------------结束 */
+/* 字颜色---------------------------------------------------------------------------------------------开始 */
+.zs1 {
+	color: #000000;
+}
+.zs2 {
+	color: #56A30C;
+}
+.zs3 {
+	color: #ffffff;
+}
+/* 字颜色---------------------------------------------------------------------------------------------结束 */
+/* 字背景色---------------------------------------------------------------------------------------------开始 */
+.zbjs1 {
+	background-color: #000000;
+}
+/* 字背景色---------------------------------------------------------------------------------------------结束 */
+/* 字对齐--------------------------------------------------------------------------------------------- */
+.zjz {
+	text-align: center;
+}
+.zyd {
+	text-align: right;
+}
+.zzd {
+	text-align: left;
+}
+.zld {
+	text-align: justify;
+}
+/* 字对齐--------------------------------------------------------------------------------------------- */
+/* 其他的--------------------------------------------------------------------------------------------- */
+.kxs {
+	display: block;
+}
+.zfd {
+	float: left;
+}
+.yfd {
+	float: right;
+}
+.qcld {
+	clear: both;
+}
+.ywyc{
+	overflow: hidden;
+	white-space: nowrap;
+}
+/* 内框填充--------------------------------------------------------------------------------------------- */
+.ns10 {
+	padding-top: 10px;
+}
+.nx10 {
+	padding-bottom: 10px;
+}
+.nz10 {
+	padding-left: 10px;
+}
+.ny10 {
+	padding-right: 10px;
+}
+.ns5 {
+	padding-top: 5px;
+}
+.nx5 {
+	padding-bottom: 5px;
+}
+.nz5 {
+	padding-left: 5px;
+}
+.ny5 {
+	padding-right: 5px;
+}
+/* 外框填充--------------------------------------------------------------------------------------------- */
+.ys10 {
+	margin-top: 10px;
+}
+.yx10 {
+	margin-bottom: 10px;
+}
+* html .yx5ie6 {
+	margin-bottom: 5px;
+}
+.yz10 {
+	margin-left: 10px;
+}
+* html .yz10ie6 {
+	margin-left: 10px;
+}
+* html .yz5ie6 {
+	margin-left: 5px;
+}
+.yz20 {
+	margin-left: 20px;
+}
+.yz30 {
+	margin-left: 30px;
+}
+.yz35 {
+	margin-left: 35px;
+}
+.yy10 {
+	margin-right: 10px;
+}
+.ys5 {
+	margin-top: 5px;
+}
+.yx5 {
+	margin-bottom: 5px;
+}
+.yz5 {
+	margin-left: 5px;
+}
+.yy5 {
+	margin-right: 5px;
+}
+/* 边框--------------------------------------------------------------------------------------------- */
+.bkxxx1 {
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+}
+.bk4z1{
+	background-color: #F8FEF6;
+	border: 1px solid #D2F3BC;
+}
+.bk4z2{
+	background-color: #FFFFE8;
+	border: 1px solid #FFE9B9;
+}
+.bkbt1{
+	background-image: url(../images/xs186.jpg);
+	background-repeat: repeat-x;
+	height: 36px;
+}
+.bkbtz1 th{
+	line-height: 36px;
+	font-weight: bold;
+}
+.bkbtz1 td{
+	line-height: 45px;
+}
+/* 字链接--------------------------------------------------------------------------------------------- */
+.a1, .a1:link, .a1:visited, .a1:active {
+
+}
+.a1:hover {
+
+}
+.a2, .a2:link, .a2:visited, .a2:active {
+	line-height: 22px;
+	color: #3372A2;
+}
+.a2:hover {
+	text-decoration: underline;
+}
+.a3, .a3:link, .a3:visited, .a3:active {
+	font-size: 14px;
+	line-height: 40px;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+	padding-right: 8px;
+	padding-left: 8px;
+	font-weight: bold;
+}
+.a3:hover {
+	background-color: #66B121;
+}
+.a4, .a4:link, .a4:visited, .a4:active {
+	font-size: 14px;
+	line-height: 30px;
+	color: #3372A2;
+	text-decoration: none;
+	font-weight: bold;
+}
+.a4:hover {
+	text-decoration: underline;
+}
+.a5, .a5:link, .a5:visited, .a5:active {
+	font-size: 14px;
+	line-height: 24px;
+	color: #000000;
+	text-decoration: none;
+}
+.a5:hover {
+	color: #FF3300;
+}
+/* 字按钮--------------------------------------------------------------------------------------------- */
+.an1 {
+}
+.an2 {
+	text-align: center;
+	height: 25px;
+	width: 50px;
+	background-image: url(../images/xs13.gif);
+	background-repeat: no-repeat;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	line-height: 25px;
+}
+/* 表单--------------------------------------------------------------------------------------------- */
+.bd1 {
+}
+.bd2 {
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	height: 20px;
+	line-height: 20px;
+}
+/* 导航--------------------------------------------------------------------------------------------- */
+.dhy5 li{
+	float: left;
+	padding-right: 5px;
+}

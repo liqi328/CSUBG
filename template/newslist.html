@@ -1,0 +1,61 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span>News</div>
+      <div class="page-products">
+     	<table summary="news" class="datatable">
+		  <caption>News</caption>
+		  <tr>
+			<th scope="col">Index</th>
+			<th scope="col">Title</th>
+			<th scope="col"></th>
+		  </tr>
+		  {% for news in news_list %}
+		  <tr class="{% cycle 'altrow' '' %}">
+			<td>{{ forloop.counter }}</td>
+			<td><a href="{{ news.id}}" title="news"><span>{{ news.title }}</span></a></td>
+			<td>5</td>
+		  </tr>
+		  {% endfor%}
+			<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>		
+		  </tr>
+		
+		</table>
+      </div>
+    </div>
+    <div class="page-left">
+
+      {% include 'includes/friendlink.html' %}
+    </div>
+  </div>
+
+{% include 'includes/footer.html' %}

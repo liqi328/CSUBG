@@ -1,3 +1,107 @@
 from django.db import models
 
 # Create your models here.
+GENDER_CHOICE = (
+                 ('Female','Female'),
+                 ('Male','Male'),
+)
+DEGREE_CHOICE = (
+                 ('PostPhD','PostPhD'),
+                 ('PhD','PhD'),
+                 ('Master','Master'),         
+)
+TITLE_CHOICE = (
+                ('Professor', 'Professor'),
+                ('PostPhD', 'PostPhD'),
+                ('PhD', 'PhD'),
+                ('Master', 'Master'),
+)
+class Member(models.Model):
+    name = models.CharField(max_length = '30')
+    gender = models.CharField(max_length = '10', choices = GENDER_CHOICE)
+    birthday = models.DateField(auto_now = False, auto_now_add = False, blank = True, null=True)
+    title = models.CharField(max_length = '30', choices = TITLE_CHOICE)
+    degree = models.CharField(max_length = '20', choices = DEGREE_CHOICE)
+    headshot = models.ImageField(upload_to = 'static/upload', blank = True, null=True)
+    email = models.EmailField(blank = True, null=True)
+    homepage = models.CharField(max_length = '60', blank = True, null=True) 
+    
+    def __unicode__(self):
+        return self.name
+
+class Project(models.Model):
+    SOURCE_CHOICE = (
+                 ('From NFSC', 'From NFSC'),
+                 ('From Ministry Education', 'From Ministry Education'),
+                 ('From Hu Nan Province', 'From Hu Nan Province'),
+                 ('From CSU', 'From CSU'),
+                 ('Cooperation Project', 'Cooperation Project'),
+    )
+    name = models.CharField(max_length = '100')
+    number = models.CharField(max_length = '30')
+    fund = models.CharField(max_length = '10')
+    time = models.CharField(max_length = '40')
+    manager = models.CharField(max_length = '20')
+    introduction = models.TextField(max_length = '6000')
+    source = models.CharField(max_length = '50', choices = SOURCE_CHOICE)
+    
+    def __unicode__(self):
+        return self.name
+
+class Paper(models.Model):
+    TYPE_CHOICE = (
+                   ('JournalPaper','Journal Paper'),
+                   ('ConferencePaper','Conference Paper'),
+    )
+    name = models.CharField(max_length = '200')
+    author = models.CharField(max_length = '100')
+    publishPlace = models.CharField(max_length = '200')
+    publishDate = models.DateField(auto_now = False, auto_now_add = False)
+    type = models.CharField(max_length = '40', choices = TYPE_CHOICE)
+    link = models.CharField(max_length = '100', blank = True, null = True)
+    abstract = models.TextField(max_length = '6000', blank = True, null = True)
+    
+    def __unicode__(self):
+        return self.name
+
+class Patent(models.Model):
+    TYPE_CHOICE = (
+                   ('Patent', 'Patent'),
+                   ('SoftwareCopyright', 'Software Copyright'),
+    )
+    name = models.CharField(max_length = '200')
+    year = models.CharField(max_length = '10')
+    owner = models.CharField(max_length = '60')
+    applicationNumber = models.CharField(max_length = '50')
+    type = models.CharField(max_length = '30', choices = TYPE_CHOICE)
+    
+    def __unicode__(self):
+        return self.name
+  
+class Software(models.Model):
+    name = models.CharField(max_length = '100')
+    functionDescription = models.CharField(max_length = '6000')
+    instruction = models.CharField(max_length = '600')
+    browseCount = models.IntegerField()
+    downloadCount = models.IntegerField()
+    image = models.ImageField(upload_to = 'static/upload')
+    link = models.FileField(upload_to = 'static/upload')
+    
+      
+class Contact(models.Model):
+    name = models.CharField(max_length = '100', blank = False)
+    email = models.EmailField(editable = True)
+    messages = models.TextField(max_length = '6000',)
+    time = models.DateTimeField(auto_now_add = True)
+    isReply = models.BooleanField(default = False)
+        
+    def __unicode__(self):
+       return self.name
+   
+class News(models.Model):
+    title = models.CharField(max_length = '300')
+    content = models.TextField(max_length = '60000')
+    publishDate = models.DateField(auto_now_add = True)
+    
+    def __unicode__(self):
+        return self.title

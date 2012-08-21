@@ -1,0 +1,32 @@
+/* CSS Document */
+
+form,h1,h2,h3,h4,ul,li,dl,dt,dd{margin:0;padding:0}
+div{text-align:left}
+img{border:0}
+ul{list-style:none}
+a{color:#36c;text-decoration:underline}
+.bg{background:#F6F6F6}
+.l{float:left}
+.r{float:right}
+.clear{clear:both;font-size:0;line-height:0;height:0;visibility:visible}
+.area2{width:771px;margin-left:11px;background:#dddfe1;}
+.more{font-size:12px;font-weight:normal;padding-right:10px;float:right;background:url(../images/list/bgs1.gif) no-repeat right 3px;padding-right:8px;text-decoration:none;margin-top:3px}
+a.more:hover{text-decoration:underline}
+.title{text-decoration:none;color:#000}
+.box1,.box2{margin-top:10px}
+.box1 .r2_1,.box1 .r2_2,.box1 .r2_3,.box1 .r2_4,.box2 .r2_1,.box2 .r2_2,.box2 .r2_3,.box2 .r2_4{display:block;width:8px;height:8px;overflow:hidden;background:url(../images/list/bgs1.gif)}
+.box1 .r2_1{background-position:0 -365px}
+.box1 .r2_2{background-position:-8px -365px}
+.box1 .r2_3{background-position:0 -373px;margin-top:-8px}
+.box1 .r2_4{background-position:-8px -373px;margin-top:-8px}
+.box2 .r2_1{background-position:0 -391px}
+.box2 .r2_2{background-position:-8px -391px}
+.box2 .r2_3{background-position:0 -399px;margin-top:-8px}
+.box2 .r2_4{background-position:-8px -399px;margin-top:-8px}
+.box1 .brd{border:3px solid #dddfe1;background:#fff}
+.box2 .brd{border:3px solid blue;background:#fff}
+.box1 h1,.box2 h1{font-size:14px;padding:5px 0 2px 15px;line-height:22px;border-bottom:1px solid #d4d4d4;background:url(../images/list/bgs2.gif) repeat-x 0 -88px}
+.box1 h1 div,.box2 h1 div{position:relative}
+.box1 h1 .more,.box2 h1 .more{position:absolute;right:10px;line-height:16px}
+.box3{width:80%;}
+.good_word{height:320px;padding:10px}

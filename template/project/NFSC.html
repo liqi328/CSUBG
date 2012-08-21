@@ -1,0 +1,56 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span><a href="../project.html">Projects</a> &gt;&gt; Ministry of Education Projects</div>
+      <div class="page-products">
+     	<div class="area2">
+ 		{% for project in project_list %}
+			 	<div class="box3 l">
+					<div class="box1" onMouseOver="this.className='box2'" onMouseOut="this.className='box1'">
+				 		<div><b class="r2_1 l"></b><b class="r2_2 r"></b></div>
+				 		<div class="brd"><h1><a href="/" target="_blank" class="title">1. {{ project.source }}</a></h1>
+				  			<div class="good_word">
+				   				项目名称：{{ project.name}}<br />
+								项目编号：{{ project.number}}<br />
+								研究经费：{{ project.fund}}<br />
+								时间：{{ project.time}}<br />
+								项目负责人：{{ project.manager}} <br />					   
+								<p>&nbsp;&nbsp;&nbsp;&nbsp; {{ project.introduction}}</p>
+				   				<div class="clear"></div>
+				  			</div>
+				 		</div>
+				 		<div><b class="r2_3 l"></b><b class="r2_4 r"></b></div>
+					</div>
+			   </div>
+		{% endfor %}   	
+
+</div>
+      </div>
+    </div>
+    <div class="page-left">
+      <div class="left-products">
+        <h2><span>Scientific Reserach Porject</span></h2>
+        <div id="LeftMenu" class="ddsmoothmenu-v">
+          <ul>
+		    <li><a href="NFSC.html" title="NFSC" {% ifequal menu_selected 'NFSC'%} id="menu_selected" {% endifequal %}><span>国家自然科学基金项目</span></a></li>
+			<li><a href="Ministry.html" title="Ministry" {% ifequal menu_selected 'Ministry'%} id="menu_selected" {% endifequal %}><span>教育部项目</span></a></li>
+			<li><a href="Province.html" title="Province" {% ifequal menu_selected 'Province'%} id="menu_selected" {% endifequal %}><span>湖南省项目</span></a></li>
+			<li><a href="CSU.html" title="CSU" {% ifequal menu_selected 'CSU'%} id="menu_selected" {% endifequal %}><span>中南大学项目</span></a></li>
+			<li><a href="Cooperation.html" title="Cooperation" {% ifequal menu_selected 'Cooperation'%} id="menu_selected" {% endifequal %}><span>与其它单位合作项目</span></a></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+		ddsmoothmenu.init({
+			mainmenuid: "LeftMenu", //Menu DIV id
+			orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+			classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+			//customtheme: ["#804000", "#482400"],
+			contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+			})
+        </script>
+      </div>
+      {% include 'includes/friendlink.html' %}
+    </div>
+  </div>
+    {% include 'includes/footer.html' %}

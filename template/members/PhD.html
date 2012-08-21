@@ -1,0 +1,62 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span><a href="{{ MEDIA_URL }}members.html">Group Members</a> &gt;&gt; PhD</div>
+      <div class="page-single">
+	  <!--S -->
+	  <div id="zishu">
+
+{% for member in member_list %}
+<div class="list">
+ <a href="#"><div id="r4" class="cd1"></div></a>
+ <div class="box">
+     <div id="t4" class="ce1"></div>
+     <div id="u4" class="cf1">
+        <div class="box2">
+			<div id="container">
+		  		<div id="leftContent"><img src="{{ MEDIA_URL }}{{ member.headshot }}"></div>
+				<div id="rightContent"><a href="/"><br />{{member.name}}</a><p>{{ member.title }}</p></div>
+  			</div>
+		</div>
+     </div>
+     <div id="y4" class="cg1">
+   <a href="#"><div class="l1"></div></a>
+  </div>
+   </div>
+</div>
+{% endfor %}
+
+</div>
+<!--E -->
+
+      </div>
+    </div>
+    <div class="page-left">
+      <div class="left-about">
+        <h2><span>Group Members</span></h2>
+        <div id="LeftMenu" class="ddsmoothmenu-v">
+          <ul>
+		    <li><a href="Professor.html" title="Professor" {% ifequal menu_selected 'Professor'%} id="menu_selected" {% endifequal %}><span>Professor</span></a></li>
+			<li><a href="PostPhD.html" title="PostPhD" {% ifequal menu_selected 'PostPhD'%} id="menu_selected" {% endifequal %}><span>PostPhD</span></a></li>
+			<li><a href="PhD.html" title="PhD" {% ifequal menu_selected 'PhD'%} id="menu_selected" {% endifequal %}><span>PhD</span></a></li>
+			<li><a href="Master.html" title="Master" {% ifequal menu_selected 'Master'%} id="menu_selected" {% endifequal %}><span>Master</span></a></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+		ddsmoothmenu.init({
+			mainmenuid: "LeftMenu", //Menu DIV id
+			orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+			classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+			//customtheme: ["#804000", "#482400"],
+			contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+			})
+        </script>
+      </div>
+      
+      {% include 'includes/friendlink.html' %}
+
+    </div>
+  </div>
+    
+{% include 'includes/footer.html' %}
