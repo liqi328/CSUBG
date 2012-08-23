@@ -22,7 +22,7 @@ class Member(models.Model):
     birthday = models.DateField(auto_now = False, auto_now_add = False, blank = True, null=True)
     title = models.CharField(max_length = '30', choices = TITLE_CHOICE)
     degree = models.CharField(max_length = '20', choices = DEGREE_CHOICE)
-    headshot = models.ImageField(upload_to = 'static/upload', blank = True, null=True)
+    headshot = models.ImageField(upload_to = 'static/upload', blank = True, null=True, default='static/upload/2.jpg')
     email = models.EmailField(blank = True, null=True)
     homepage = models.CharField(max_length = '60', blank = True, null=True) 
     

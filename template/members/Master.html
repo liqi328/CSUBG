@@ -14,13 +14,14 @@
      <div id="u5" class="cf1">
         <div class="box2">
 			<div id="container">
-		  		<div id="leftContent"><a href="{{ member.homepage }}" target="blank"><img src="{{ MEDIA_URL }}{{ member.headshot }}"></a></div>
-				<div id="rightContent"><a href="{{ member.homepage }}" target="blank"><br />{{member.name}}</a><p>{{ member.title }}</p></div>
+		  		<div id="leftContent">{% if member.homepage %}<a href="{{ member.homepage }}" target="blank">
+						      {% else %} <a>{% endif %}<img src="{{ MEDIA_URL }}{{ member.headshot }}"></a></div>
+				<div id="rightContent">{% if member.homepage %}<a href="{{ member.homepage }}" target="blank">{% else %} <a>{% endif %}<br />{{member.name}}</a><p>{{ member.title }}</p></div>
   			</div>
 		</div>
      </div>
     <div id="y5" class="cg1">
-   		<a href="#"><div class="l1"></div></a>
+   		{% if member.homepage %}<a href="{{ member.homepage }}" target="blank">{% else %} <a>{% endif %}<div class="l1"></div></a>
   	</div>
  </div>
 </div>

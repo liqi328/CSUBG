@@ -115,6 +115,7 @@ TEMPLATE_DIRS = (
     #'/home/liqi/project/CSUBG/templates',
     os.path.join(os.path.dirname(__file__),'template').replace('\\','/'),
     #os.path.join(os.path.dirname(__file__),'templates').replace('\\','/'),
+    #'/var/www/CSUBG/template',
 )
 
 INSTALLED_APPS = (
