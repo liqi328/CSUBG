@@ -22,7 +22,7 @@ class Member(models.Model):
     birthday = models.DateField(auto_now = False, auto_now_add = False, blank = True, null=True)
     title = models.CharField(max_length = '30', choices = TITLE_CHOICE)
     degree = models.CharField(max_length = '20', choices = DEGREE_CHOICE)
-    headshot = models.ImageField(upload_to = 'static/upload', blank = True, null=True, default='static/upload/2.jpg')
+    headshot = models.ImageField(upload_to = 'upload/headshot', blank = True, null=True, default='upload/headshot/0_0.jpg')
     email = models.EmailField(blank = True, null=True)
     homepage = models.CharField(max_length = '60', blank = True, null=True) 
     
@@ -80,12 +80,13 @@ class Patent(models.Model):
   
 class Software(models.Model):
     name = models.CharField(max_length = '100')
-    functionDescription = models.CharField(max_length = '6000')
-    instruction = models.CharField(max_length = '600')
-    browseCount = models.IntegerField()
-    downloadCount = models.IntegerField()
-    image = models.ImageField(upload_to = 'static/upload')
-    link = models.FileField(upload_to = 'static/upload')
+    functionDescription = models.TextField(max_length = '6000')
+    instruction = models.TextField(max_length = '600')
+    browseCount = models.IntegerField(editable = False, default = 0)
+    downloadCount = models.IntegerField(editable =False, default = 0)
+    image = models.ImageField(upload_to = 'upload/software/img/%Y%m',blank = True, null = True)
+    #link = models.FileField(upload_to = 'upload/software/homepage/%Y%m')
+    link = models.CharField(max_length = '100', default='software/')
     
       
 class Contact(models.Model):

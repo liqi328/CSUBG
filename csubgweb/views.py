@@ -1,20 +1,25 @@
 # Create your views here.
 from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.core.servers.basehttp import FileWrapper
 from django.template import RequestContext
 from django.core.mail import send_mail
+import os
 
-from csubgweb.models import Member, Project, Paper, Patent, Contact, News
+from csubgweb.models import Member, Project, Paper, Patent, Contact, News, Software
 
 def index(request):
     news_list = News.objects.order_by('-publishDate')[:10]
     return render_to_response('index.html', {'header_menu_selected': 'index', 'news_list': news_list}, context_instance = RequestContext(request)) 
 
-def forward(request,name,dir=''):
+def forward(request,name,dir='', dir2=''):
     template_name = ''
     news_list = None
     if(dir != ''):
         template_name = dir + '/'
-    if(name == 'index.html'):
+    if(dir2 != ''):
+        template_name = template_name + dir2 + '/'
+    if(name == 'index.html' and dir2 == ''):
         news_list = News.objects.order_by('-publishDate')[:10]
     template_name = template_name + name
     return render_to_response(template_name, {'header_menu_selected': name.split('.')[0], 'news_list': news_list}, context_instance = RequestContext(request)) 
@@ -36,9 +41,27 @@ def achievement_list(request,name):
         achievements = Patent.objects.filter(type__contains = modelType)
         name = 'Patent.html'       
     return render_to_response('achievements/' + name, {'achievement_list': achievements, 'header_menu_selected': 'achievements', 'menu_selected': modelType}, context_instance = RequestContext(request))
+'''
+def download(request,dir, path):
+    path2 = 'software/'+ dir + '/' + path
+    f = open(path2)
+    data = f.read()
+    f.close()
+    response = HttpResponse(data, mimetype = 'application/octet-stream')
+    response['Content-Disposition'] = 'attachment;filename=%s' % path
+    return response
+'''
+def download(request, dir, filename):
+    path = 'software/'+ dir + '/' + filename
+    wrapper = FileWrapper(file(path))
+    response = HttpResponse(wrapper, content_type = 'text/plain')
+    response['Content-Length'] = os.path.getsize(path)
+    return response
 
 def download_list(request):
-    return
+    template_name = 'download.html'
+    software_list = Software.objects.order_by('-downloadCount')
+    return render_to_response(template_name, {'header_menu_selected': 'download', 'software_list': software_list}, context_instance = RequestContext(request))
 
 def news_list(request,newsId):
     news_list = None
