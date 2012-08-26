@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.core.mail import send_mail
 import os
 
+from django.conf import settings
 from csubgweb.models import Member, Project, Paper, Patent, Contact, News, Software
 
 def index(request):
@@ -41,23 +42,25 @@ def achievement_list(request,name):
         achievements = Patent.objects.filter(type__contains = modelType)
         name = 'Patent.html'       
     return render_to_response('achievements/' + name, {'achievement_list': achievements, 'header_menu_selected': 'achievements', 'menu_selected': modelType}, context_instance = RequestContext(request))
-'''
-def download(request,dir, path):
-    path2 = 'software/'+ dir + '/' + path
-    f = open(path2)
+
+def download(request,dir, filename):
+    path = 'software/'+ dir + '/' + filename
+    path = os.path.join(settings.MEDIA_ROOT, path).replace('\\','/')
+    f = open(path)
     data = f.read()
     f.close()
     response = HttpResponse(data, mimetype = 'application/octet-stream')
-    response['Content-Disposition'] = 'attachment;filename=%s' % path
+    response['Content-Disposition'] = 'attachment;filename=%s' % filename
     return response
 '''
 def download(request, dir, filename):
     path = 'software/'+ dir + '/' + filename
+    path = os.path.join(settings.MEDIA_ROOT, path).replace('\\','/')
     wrapper = FileWrapper(file(path))
     response = HttpResponse(wrapper, content_type = 'text/plain')
     response['Content-Length'] = os.path.getsize(path)
     return response
-
+'''
 def download_list(request):
     template_name = 'download.html'
     software_list = Software.objects.order_by('-downloadCount')
