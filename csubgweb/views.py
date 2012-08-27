@@ -29,7 +29,7 @@ def forward(request,name,dir='', dir2=''):
     if(name == 'index.html' and dir2 == ''):
         news_list = News.objects.order_by('-publishDate')[:10]
     elif(name == 'members.html'):
-        query = 'select degree, count(*) as count from csubgweb_member group by title;'
+        query = 'select title, count(*) as count from csubgweb_member group by title;'
     elif(name == 'project.html'):
         query = 'select source, count(*) as count from csubgweb_project group by source;'
     elif(name == 'achievements.html'):
