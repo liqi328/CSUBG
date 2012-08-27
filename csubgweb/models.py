@@ -84,7 +84,7 @@ class Software(models.Model):
     instruction = models.TextField(max_length = '600')
     browseCount = models.IntegerField(editable = False, default = 0)
     downloadCount = models.IntegerField(editable =False, default = 0)
-    image = models.ImageField(upload_to = 'upload/software/img/%Y%m',blank = True, null = True)
+    image = models.ImageField(upload_to = 'upload/software/%Y%m',blank = True, null = True)
     #link = models.FileField(upload_to = 'upload/software/homepage/%Y%m')
     link = models.CharField(max_length = '100', default='software/')
     
