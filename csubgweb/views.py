@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.core.servers.basehttp import FileWrapper
 from django.template import RequestContext
 from django.core.mail import send_mail
+from django.db import connection
+
 import os
 
 from django.conf import settings
@@ -16,14 +18,29 @@ def index(request):
 def forward(request,name,dir='', dir2=''):
     template_name = ''
     news_list = None
+    query = ''
+    cursor = connection.cursor()
+    rows = None
+    dicts = {}
     if(dir != ''):
         template_name = dir + '/'
     if(dir2 != ''):
         template_name = template_name + dir2 + '/'
     if(name == 'index.html' and dir2 == ''):
         news_list = News.objects.order_by('-publishDate')[:10]
+    elif(name == 'members.html'):
+        query = 'select title, count(*) as count from csubgweb_member group by title;'
+    elif(name == 'project.html'):
+        query = 'select source, count(*) as count from csubgweb_project group by source;'
+    elif(name == 'achievements.html'):
+        query = 'select type,count(*) as count from csubgweb_patent group by type UNION select type,count(*) as count from csubgweb_paper group by type;'
+    if(query != ''):
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        for row in rows:
+            dicts[row[0]] = row[1]
     template_name = template_name + name
-    return render_to_response(template_name, {'header_menu_selected': name.split('.')[0], 'news_list': news_list}, context_instance = RequestContext(request)) 
+    return render_to_response(template_name, {'header_menu_selected': name.split('.')[0], 'news_list': news_list,'dicts':dicts}, context_instance = RequestContext(request)) 
 
 def member_list(request,name):
     members = Member.objects.filter(title = name.split('.')[0])
@@ -88,3 +105,4 @@ def contact_save(request):
             ['liqi328@163.com']
         )  
     return render_to_response('contact_success.html', {'header_menu_selected': 'contact'}, context_instance = RequestContext(request))
+

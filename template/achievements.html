@@ -1,4 +1,5 @@
 {% include 'includes/header.html' %}
+{% load dictkey %}
 
   <div id="page_main" class="clearfix">
     <div class="page-right">
@@ -14,22 +15,22 @@
 		  <tr class="altrow">
 			<td>1</td>
 			<td>期刊论文</td>
-			<td>5</td>
+			<td>{{ dicts|key:"JournalPaper" }}</td>
 		  </tr>
 		  <tr>
 			<td>2</td>
 			<td>会议论文</td>
-			<td>4</td>		
+			<td>{{ dicts|key:"ConferencePaper" }}</td>		
 		  </tr>
 		  <tr class="altrow">
 			<td>3</td>
 			<td>专利</td>
-			<td>4</td>
+			<td>{{ dicts|key:"Patent" }}</td>
 		  </tr>
 		  <tr>
 			<td>4</td>
 			<td>软件著作权</td>
-			<td>1</td>		
+			<td>{{ dicts|key:"SoftwareCopyright" }}</td>		
 		  </tr>
 		  <tr>
 			<td>&nbsp;</td>

@@ -1,4 +1,5 @@
 {% include 'includes/header.html' %}
+{% load dictkey %}
 
   <div id="page_main" class="clearfix">
     <div class="page-right">
@@ -14,27 +15,27 @@
 		  <tr class="altrow">
 			<td>1</td>
 			<td>国家自然科学基金项目</td>
-			<td>5</td>
+			<td>{{ dicts|key:"From NFSC" }}</td>
 		  </tr>
 		  <tr>
 			<td>2</td>
 			<td>教育部项目</td>
-			<td>4</td>		
+			<td>{{ dicts|key:"From Ministry Education" }}</td>		
 		  </tr>
 		  <tr class="altrow">
 			<td>3</td>
 			<td>湖南省项目</td>
-			<td>5</td>
+			<td>{{ dicts|key:"From Hu Nan Province" }}</td>
 		  </tr>
 		  <tr>
 			<td>4</td>
 			<td>中南大学项目</td>
-			<td>10</td>		
+			<td>{{ dicts|key:"From CSU" }}</td>		
 		  </tr>
 		  <tr class="altrow">
 			<td>5</td>
 			<td>与其它单位合作项目</td>
-			<td>5</td>
+			<td>{{ dicts|key:"Cooperation Project" }}</td>
 		  </tr>
 			<tr>
 			<td>&nbsp;</td>

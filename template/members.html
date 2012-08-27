@@ -1,4 +1,5 @@
 {% include 'includes/header.html' %}
+{% load dictkey %}
 
   <div id="page_main" class="clearfix">
     <div class="page-right">
@@ -11,26 +12,33 @@
 			<th scope="col">Type</th>
 			<th scope="col">人数</th>
 		  </tr>
+		  <!--{% for key,value in dicts.items %}
+		  <tr class="{% cycle 'altrow' '' %}">
+			<td>{{ forloop.counter }}</td>
+			<td>{{ key }}</td>
+			<td>{{ value }}</td>
+		  </tr>
+		  {% endfor %}
+		  -->
 		  <tr class="altrow">
 			<td>1</td>
 			<td>Professor</td>
-			<td>5</td>
+			<td>{{ dicts|key:"Professor" }}</td>
 		  </tr>
 		  <tr>
 			<td>2</td>
 			<td>Post-PhD</td>
-			<td>4</td>		
+			<td>{{ dicts|key:"PostPhD" }}</td>		
 		  </tr>
 		  <tr class="altrow">
 			<td>3</td>
 			<td>PhD</td>
-			<td>5</td>
-		  </tr>
-		  
+			<td>{{ dicts|key:"PhD" }}</td>
+		  </tr>		  
 		  <tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>		
+			<td>4</td>
+			<td>Master</td>
+			<td>{{ dicts|key:"Master" }}</td>		
 		  </tr>
 		  <tr>
 			<td>&nbsp;</td>
