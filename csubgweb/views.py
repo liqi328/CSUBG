@@ -44,7 +44,7 @@ def forward(request,name,dir='', dir2=''):
 
 def member_list(request,name):
     members = Member.objects.filter(category = name.split('.')[0])
-    return render_to_response('members/' + 'master.html', {'member_list': members, 'header_menu_selected': 'members', 'menu_selected': name.split('.')[0]}, context_instance = RequestContext(request))
+    return render_to_response('members/' + 'Master.html', {'member_list': members, 'header_menu_selected': 'members', 'menu_selected': name.split('.')[0]}, context_instance = RequestContext(request))
 
 def project_list(request,name):
     projects = Project.objects.filter(source__contains = name.split('.')[0])
