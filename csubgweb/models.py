@@ -6,23 +6,39 @@ GENDER_CHOICE = (
                  ('Male','Male'),
 )
 DEGREE_CHOICE = (
-                 ('PostPhD','PostPhD'),
                  ('PhD','PhD'),
-                 ('Master','Master'),         
+                 ('Master','Master'),
+                 ('Bachelor','Bachelor'),
 )
+CATEGORY_CHOICE = (
+                ('Professor', 'Professor'),
+                ('VisitingScholar', 'Visiting Scholar'),
+                ('PostDoctorate', 'Post Doctorate'),
+                ('PhDCandidate', 'PhD Candidate'),
+                ('PhDGraduate', 'PhD(Graduate)'),
+                ('MasterCandidate', 'Master Candidate'),
+                ('MasterGraduate', 'Master(Graduate)'),
+                ('ForeignStudent', 'Foreign Student'),               
+)
+'''
 TITLE_CHOICE = (
                 ('Professor', 'Professor'),
                 ('PostPhD', 'PostPhD'),
                 ('PhD', 'PhD'),
                 ('Master', 'Master'),
 )
+'''
+
 class Member(models.Model):
     name = models.CharField(max_length = '30')
+    englishName = models.CharField(max_length = '30')
     gender = models.CharField(max_length = '10', choices = GENDER_CHOICE)
     birthday = models.DateField(auto_now = False, auto_now_add = False, blank = True, null=True)
-    title = models.CharField(max_length = '30', choices = TITLE_CHOICE)
+    title = models.CharField(max_length = '300')
     degree = models.CharField(max_length = '20', choices = DEGREE_CHOICE)
-    headshot = models.ImageField(upload_to = 'upload/headshot', blank = True, null=True, default='upload/headshot/0_0.jpg')
+    category = models.CharField(max_length = '30',choices = CATEGORY_CHOICE)
+    enrollmentDate = models.DateField(auto_now = False, auto_now_add = False, blank = True, null=True)
+    headshot = models.ImageField(upload_to = 'upload/headshot', blank = True, null=True, default='upload/headshot/0_0.jpg')    
     email = models.EmailField(blank = True, null=True)
     homepage = models.CharField(max_length = '60', blank = True, null=True) 
     
@@ -35,9 +51,11 @@ class Project(models.Model):
                  ('From Ministry Education', 'From Ministry Education'),
                  ('From Hu Nan Province', 'From Hu Nan Province'),
                  ('From CSU', 'From CSU'),
+                 ('From 973', 'From 973'),
                  ('Cooperation Project', 'Cooperation Project'),
     )
-    name = models.CharField(max_length = '100')
+    title = models.CharField(max_length = '200')
+    name = models.CharField(max_length = '200')
     number = models.CharField(max_length = '30')
     fund = models.CharField(max_length = '10')
     time = models.CharField(max_length = '40')
@@ -106,3 +124,9 @@ class News(models.Model):
     
     def __unicode__(self):
         return self.title
+
+class FriendLink(models.Model):
+    name = models.CharField(max_length = '150')
+    English_name = models.CharField(max_length = '150')
+    link = models.CharField(max_length = '150')
+    

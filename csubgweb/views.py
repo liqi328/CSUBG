@@ -29,7 +29,7 @@ def forward(request,name,dir='', dir2=''):
     if(name == 'index.html' and dir2 == ''):
         news_list = News.objects.order_by('-publishDate')[:10]
     elif(name == 'members.html'):
-        query = 'select title, count(*) as count from csubgweb_member group by title;'
+        query = 'select category, count(*) as count from csubgweb_member group by category;'
     elif(name == 'project.html'):
         query = 'select source, count(*) as count from csubgweb_project group by source;'
     elif(name == 'achievements.html'):
@@ -43,8 +43,8 @@ def forward(request,name,dir='', dir2=''):
     return render_to_response(template_name, {'header_menu_selected': name.split('.')[0], 'news_list': news_list,'dicts':dicts}, context_instance = RequestContext(request)) 
 
 def member_list(request,name):
-    members = Member.objects.filter(title = name.split('.')[0])
-    return render_to_response('members/' + name, {'member_list': members, 'header_menu_selected': 'members', 'menu_selected': name.split('.')[0]}, context_instance = RequestContext(request))
+    members = Member.objects.filter(category = name.split('.')[0])
+    return render_to_response('members/' + 'master.html', {'member_list': members, 'header_menu_selected': 'members', 'menu_selected': name.split('.')[0]}, context_instance = RequestContext(request))
 
 def project_list(request,name):
     projects = Project.objects.filter(source__contains = name.split('.')[0])
@@ -68,6 +68,7 @@ def download(request,dir, filename):
     f.close()
     response = HttpResponse(data, mimetype = 'application/octet-stream')
     response['Content-Disposition'] = 'attachment;filename=%s' % filename
+    response['Content-Length'] = os.path.getsize(path)
     return response
 '''
 def download(request, dir, filename):

@@ -9,8 +9,8 @@
 		  <caption>实验室成员分布</caption>
 		  <tr>
 			<th scope="col">Index</th>
-			<th scope="col">Type</th>
-			<th scope="col">人数</th>
+			<th scope="col">Category</th>
+			<th scope="col">Population</th>
 		  </tr>
 		  <!--{% for key,value in dicts.items %}
 		  <tr class="{% cycle 'altrow' '' %}">
@@ -27,19 +27,39 @@
 		  </tr>
 		  <tr>
 			<td>2</td>
-			<td>Post-PhD</td>
-			<td>{{ dicts|key:"PostPhD" }}</td>		
+			<td>Visiting Scholar</td>
+			<td>{{ dicts|key:"VisitingScholar" }}</td>		
 		  </tr>
 		  <tr class="altrow">
 			<td>3</td>
-			<td>PhD</td>
-			<td>{{ dicts|key:"PhD" }}</td>
-		  </tr>		  
+			<td>Post Doctorate</td>
+			<td>{{ dicts|key:"PostDoctorate" }}</td>		
+		  </tr>
 		  <tr>
 			<td>4</td>
-			<td>Master</td>
-			<td>{{ dicts|key:"Master" }}</td>		
+			<td>PhD Candidate</td>
+			<td>{{ dicts|key:"PhDCandidate" }}</td>
 		  </tr>
+		  <tr class="altrow">
+			<td>5</td>
+			<td>PhD(Graduate)</td>
+			<td>{{ dicts|key:"PhDGraduate" }}</td>		
+		  </tr>
+		  <tr>
+			<td>6</td>
+			<td>Master Candidate</td>
+			<td>{{ dicts|key:"MasterCandidate" }}</td>		
+		  </tr>		  
+		  <tr class="altrow">
+			<td>7</td>
+			<td>Master(Graduate)</td>
+			<td>{{ dicts|key:"MasterGraduate" }}</td>		
+		  </tr>
+		  <tr>
+			<td>8</td>
+			<td>Foreign Student</td>
+			<td>{{ dicts|key:"ForeignStudent" }}</td>		
+		  </tr>	
 		  <tr>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
@@ -85,9 +105,13 @@
         <div id="LeftMenu" class="ddsmoothmenu-v">
           <ul>
 		    <li><a href="members/Professor.html" title="Professor"><span>Professor</span></a></li>
-			<li><a href="members/PostPhD.html" title="PostPhD"><span>PostPhD</span></a></li>
-			<li><a href="members/PhD.html" title="PhD"><span>PhD</span></a></li>
-			<li><a href="members/Master.html" title="Master"><span>Master</span></a></li>
+			<li><a href="members/VisitingScholar.html" title="Visiting Scholar"><span>Visiting Scholar</span></a></li>
+			<li><a href="members/PostDoctorate.html" title="Post Doctorate"><span>Post Doctorate</span></a></li>
+			<li><a href="members/PhDCandidate.html" title="PhD Candidate"><span>PhD Candidate</span></a></li>
+			<li><a href="members/PhDGraduate.html" title="PhD(Graduate)"><span>PhD(Graduate)</span></a></li>
+			<li><a href="members/MasterCandidate.html" title="Master Candidate"><span>Master Candidate</span></a></li>
+			<li><a href="members/MasterGraduate.html" title="Master(Graduate)"><span>Master(Graduate)</span></a></li>
+			<li><a href="members/ForeignStudent.html" title="Foreign Student"><span>Foreign Student</span></a></li>
           </ul>
         </div>       
       </div>
