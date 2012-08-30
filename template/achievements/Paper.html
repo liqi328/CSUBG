@@ -2,20 +2,20 @@
 
   <div id="page_main" class="clearfix">
     <div class="page-right">
-      <div class="site-nav"><span>Current Location : </span><a href="../achievements.html">Achievements</a> &gt;&gt; Journal Papers</div>  
-      	<!-- S -->
-		{% for paper in achievement_list %}
-		<div id="content"> 
-			<!-- <span id="key1" class="key" onClick="shoppingcat('1');">link to>>>></span> -->
-			{{ forloop.counter }}. {{ paper.name }}
-		</div>
-		<div id="intro1" class="intro">
-			<hr>作者：{{ paper.author }}
-			<br />期刊：{{ paper.publishPlace }} 
-			<br />日期：{{ paper.publishDate }}
-			<!-- <br />&nbsp;&nbsp;<font size="+1">Abstract:</font> Dense subgraphs of protein interaction networks are believed to be potential protein complexes and play an important role in analyzing cellular organization and predicting functions of proteins. In this paper, we present a new algorithm LD-Miner for mining l-dense subgraphs in protein interaction networks. We apply algorithm LD-Miner to the protein interaction network of Saccharomyces cerevisiae collected from MIPS. Many well known protein complexes annotated by manually are detected. We also match our predicted clusters to the known complexes systematically analyzed by Given et al., Ho et al., and Krogan et al., compared to other previous density-based algorithms, LD-Miner matches much more experimentally determined complexes and known complexes by systematic analysis. Moreover, LD-Miner is very fast, which can be used in even larger biological networks. -->
-		</div>
-		{% endfor %}			
+      <div class="site-nav"><span>Current Location : </span><a href="../publications.html">publications</a> &gt;&gt; Journal Papers</div>  
+		<table summary="" class="datatable">	  
+		  <tr>
+			<th scope="col">Index</th>
+			<th scope="col">Title</th>			
+		  </tr>
+		  
+		  {% for paper in publication_list %}
+		  <tr class="{% cycle 'altrow' '' %}">
+			<td>{{ forloop.counter }}</td>
+			<td>{{ paper.authors }}.{{ paper.title }}.{{ paper.publication }}.{{ paper.publishDate|date:'Y' }}</td>			
+		  </tr>
+		  {% endfor %}		  
+		</table>		
 		<!-- E -->
       
     </div>
@@ -26,8 +26,6 @@
           <ul>
 			<li><a href="JournalPaper.html" title="JournalPaper" {% ifequal menu_selected 'JournalPaper'%} id="menu_selected" {% endifequal %}><span>Journal Papers</span></a></li>
 			<li><a href="ConferencePaper.html" title="ConferencePaper" {% ifequal menu_selected 'ConferencePaper'%} id="menu_selected" {% endifequal %}><span>Conference Papers</span></a></li>
-			<li><a href="Patent.html" title="Patent" {% ifequal menu_selected 'Papent'%} id="menu_selected" {% endifequal %}><span>Patents</span></a></li>
-			<li><a href="SoftwareCopyright.html" title="SoftwareCopyright" {% ifequal menu_selected 'SoftwareCopyright'%} id="menu_selected" {% endifequal %}><span>Software Copyright</span></a></li>
           </ul>
         </div>
         <script type="text/javascript">

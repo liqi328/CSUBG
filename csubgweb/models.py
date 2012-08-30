@@ -71,26 +71,30 @@ class Paper(models.Model):
                    ('JournalPaper','Journal Paper'),
                    ('ConferencePaper','Conference Paper'),
     )
-    name = models.CharField(max_length = '200')
-    author = models.CharField(max_length = '100')
-    publishPlace = models.CharField(max_length = '200')
-    publishDate = models.DateField(auto_now = False, auto_now_add = False)
-    type = models.CharField(max_length = '40', choices = TYPE_CHOICE)
+    title = models.TextField(max_length = '300')
+    authors = models.CharField(max_length = '200')
+    publication = models.TextField(max_length = '200')
+    publisher = models.CharField(max_length = '100',null = True, blank = True)
+    volume = models.CharField(max_length = '20',null = True, blank = True)
+    number = models.CharField(max_length = '20',null = True, blank = True)
+    pages = models.CharField(max_length = '20',null = True, blank = True)
+    publishDate = models.DateField(auto_now = False, auto_now_add = False) 
     link = models.CharField(max_length = '100', blank = True, null = True)
-    abstract = models.TextField(max_length = '6000', blank = True, null = True)
+    type = models.CharField(max_length = '40', choices = TYPE_CHOICE)
     
     def __unicode__(self):
-        return self.name
+        return self.title
 
 class Patent(models.Model):
     TYPE_CHOICE = (
                    ('Patent', 'Patent'),
+                   ('Award', 'Award'),
                    ('SoftwareCopyright', 'Software Copyright'),
     )
     name = models.CharField(max_length = '200')
     year = models.CharField(max_length = '10')
     owner = models.CharField(max_length = '60')
-    applicationNumber = models.CharField(max_length = '50')
+    applicationNumber = models.CharField(max_length = '50',null = True, blank = True)
     type = models.CharField(max_length = '30', choices = TYPE_CHOICE)
     
     def __unicode__(self):

@@ -33,7 +33,9 @@ def forward(request,name,dir='', dir2=''):
     elif(name == 'project.html'):
         query = 'select source, count(*) as count from csubgweb_project group by source;'
     elif(name == 'achievements.html'):
-        query = 'select type,count(*) as count from csubgweb_patent group by type UNION select type,count(*) as count from csubgweb_paper group by type;'
+        query = 'select type,count(*) as count from csubgweb_patent group by type;'
+    elif(name == 'publications.html'):
+        query = 'select type,count(*) as count from csubgweb_paper group by type;'
     if(query != ''):
         cursor.execute(query)
         rows = cursor.fetchall()
@@ -59,6 +61,10 @@ def achievement_list(request,name):
         achievements = Patent.objects.filter(type__contains = modelType)
         name = 'Patent.html'       
     return render_to_response('achievements/' + name, {'achievement_list': achievements, 'header_menu_selected': 'achievements', 'menu_selected': modelType}, context_instance = RequestContext(request))
+
+def publication_list(request, name):
+    publications = Paper.objects.filter(type__contains = name.split('.')[0])
+    return render_to_response('achievements/Paper.html', {'publication_list': publications, 'header_menu_selected': 'publications', 'menu_selected': name.split('.')[0]}, context_instance = RequestContext(request))
 
 def download(request,dir, filename):
     path = 'software/'+ dir + '/' + filename

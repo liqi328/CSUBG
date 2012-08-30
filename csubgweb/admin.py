@@ -12,8 +12,8 @@ class ProjectAdmin(admin.ModelAdmin):
     ording = ('name',)
 
 class PaperAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', 'publishPlace', 'publishDate')
-    search_fields = ('name',)
+    list_display = ('title', 'authors', 'publication', 'publishDate')
+    search_fields = ('title',)
     ording = ('-publishDate',)
 
 class PatentAdmin(admin.ModelAdmin):
