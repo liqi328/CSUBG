@@ -63,20 +63,20 @@ function pucker_show(name,no,hiddenclassname,showclassname) {
 <div id="wrapper">
     <div class="top">
     	<img src="{{ MEDIA_URL }}images/logo.gif" width="650" height="90" alt="CSU Bioinformatics Group" />
-		{% ifequal header_menu_selected 'index' %}
-    	<div id="lang"><a href="./index_cn.html"><img src="{{ MEDIA_URL }}images/cn.gif" width="16" height="11" alt="chinese" />中文</a></div>
+		{% ifequal header_menu_selected 'index_cn' %}
+    	<div id="lang"><a href="./index.html"><img src="{{ MEDIA_URL }}images/gb.gif" width="16" height="11" alt="English" />English</a></div>
 		{% endifequal %}
   	</div>
   	<div id="MainMenu" class="ddsmoothmenu">
 		<ul>
-		  <li><a href="/csubg/index.html" title="Home Page" {% ifequal header_menu_selected 'index'%} id="menu_selected"{% endifequal %}><span>Home</span></a></li>
-		  <li><a href="/csubg/members.html" title="Group Members" {% ifequal header_menu_selected 'members'%} id="menu_selected"{% endifequal %}><span>Group Members</span></a></li>
-		  <li><a href="/csubg/project.html" title="Project" {% ifequal header_menu_selected 'project'%} id="menu_selected"{% endifequal %}><span>Projects</span></a></li>
-		  <li><a href="/csubg/achievements.html" title="Achievements" {% ifequal header_menu_selected 'achievements'%} id="menu_selected"{% endifequal %}><span>Achievemets</span></a></li>
-		  <li><a href="/csubg/publications.html" title="Publications" {% ifequal header_menu_selected 'publications'%} id="menu_selected"{% endifequal %}><span>Publications</span></a></li>
-		  <li><a href="/csubg/download.html" title="Download" {% ifequal header_menu_selected 'download'%} id="menu_selected"{% endifequal %}><span>Download</span></a></li>
-		  <li><a href="#" title="Album" {% ifequal header_menu_selected 'album'%} id="menu_selected"{% endifequal %}><span>Album</span></a></li>
-		  <li><a href="/csubg/contact.html" title="Contact Us" {% ifequal header_menu_selected 'contact'%} id="menu_selected"{% endifequal %}><span>Contact</span></a></li>
+		  <li><a href="/csubg/index.html" title="Home Page" {% ifequal header_menu_selected 'index_cn' %} id="menu_selected"{% endifequal %}><span>主页</span></a></li>
+		  <li><a href="/csubg/members.html" title="Group Members" {% ifequal header_menu_selected 'members'%} id="menu_selected"{% endifequal %}><span>团队成员</span></a></li>
+		  <li><a href="/csubg/project.html" title="Project" {% ifequal header_menu_selected 'project'%} id="menu_selected"{% endifequal %}><span>科研项目</span></a></li>
+		  <li><a href="/csubg/achievements.html" title="Achievements" {% ifequal header_menu_selected 'achievements'%} id="menu_selected"{% endifequal %}><span>科研成果</span></a></li>
+		  <li><a href="/csubg/publications.html" title="Publications" {% ifequal header_menu_selected 'publications'%} id="menu_selected"{% endifequal %}><span>论文</span></a></li>
+		  <li><a href="/csubg/download.html" title="Download" {% ifequal header_menu_selected 'download'%} id="menu_selected"{% endifequal %}><span>资源下载</span></a></li>
+		  <li><a href="#" title="Album" {% ifequal header_menu_selected 'album'%} id="menu_selected"{% endifequal %}><span>团队展示</span></a></li>
+		  <li><a href="/csubg/contact.html" title="Contact Us" {% ifequal header_menu_selected 'contact'%} id="menu_selected"{% endifequal %}><span>联系我们</span></a></li>
 		</ul>
   	</div>
 	<script type="text/javascript">

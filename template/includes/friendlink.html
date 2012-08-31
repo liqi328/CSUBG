@@ -1,15 +1,18 @@
  <div class="left-contact">
         <h2><span>联系我们</span></h2>
-        <div class="xsnazzy">
+
+		{% for flink in link_list %}
+		<div class="xsnazzy">
 			<b class="xtop"><b class="xb1"></b><b class="xb2 color_a">
 			</b><b class="xb3 color_a"></b><b class="xb4 color_a"></b></b>
 			<div class="xboxcontent">
-				<h1 class="color_a"><a href="http://www.csu.edu.cn/" target="_blank">中南大学</a></h1>				
+				<h1 class="color_a"><a href="{{ flink.link }}" target="_blank" alt="{{ flink.english_name }}">{{ flink.name }}</a></h1>				
 			</div>
 			<b class="xbottom"><b class="xb4"></b><b class="xb3"></b>
 			<b class="xb2"></b><b class="xb1"></b></b>
 		</div>
-   		<div class="xsnazzy">
+		{% endfor %}
+   		<!--<div class="xsnazzy">
 			<b class="xtop"><b class="xb1"></b><b class="xb2 color_a">
 			</b><b class="xb3 color_a"></b><b class="xb4 color_a"></b></b>
 			<div class="xboxcontent">
@@ -26,5 +29,5 @@
 			</div>
 			<b class="xbottom"><b class="xb4"></b><b class="xb3"></b>
 			<b class="xb2"></b><b class="xb1"></b></b>
-		</div>
+		</div>-->
  </div>

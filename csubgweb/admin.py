@@ -1,5 +1,5 @@
 from django.contrib import admin
-from csubgweb.models import Member, Project, Paper, Patent, Contact, News, Software
+from csubgweb.models import Member, Project, Paper, Patent, Contact, News, Software, FriendLink
 
 class MemberAdmin(admin.ModelAdmin):
     list_display = ('name', 'title', 'degree', 'email') 
@@ -35,6 +35,11 @@ class SoftwareAdmin(admin.ModelAdmin):
     list_display = ('name', 'browseCount', 'downloadCount', 'link')
     search_fields = ('name',)
     ording = ('-downloadCount')
+
+class FriendLinkAdmin(admin.ModelAdmin):
+    list_display = ('name', 'english_name', 'link')
+    search_fields = ('name',)
+    ording = ('name')
     
 admin.site.register(Member, MemberAdmin)
 admin.site.register(Project, ProjectAdmin)
@@ -43,3 +48,4 @@ admin.site.register(Patent, PatentAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Software, SoftwareAdmin)
+admin.site.register(FriendLink, FriendLinkAdmin)

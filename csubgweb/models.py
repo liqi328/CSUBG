@@ -130,7 +130,10 @@ class News(models.Model):
         return self.title
 
 class FriendLink(models.Model):
-    name = models.CharField(max_length = '150')
-    English_name = models.CharField(max_length = '150')
-    link = models.CharField(max_length = '150')
+    name = models.CharField(max_length = '200')
+    english_name = models.CharField(max_length = '200')
+    link = models.CharField(max_length = '200')
+
+    def __unicode__(self):
+        return self.name
     
