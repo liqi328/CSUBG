@@ -103,7 +103,7 @@ class Patent(models.Model):
 class Software(models.Model):
     name = models.CharField(max_length = '100')
     functionDescription = models.TextField(max_length = '6000')
-    instruction = models.TextField(max_length = '600')
+    instruction = models.TextField(max_length = '600',null = True, blank = True)
     browseCount = models.IntegerField(editable = False, default = 0)
     downloadCount = models.IntegerField(editable =False, default = 0)
     image = models.ImageField(upload_to = 'upload/software/%Y%m',blank = True, null = True)

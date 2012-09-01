@@ -13,6 +13,7 @@ urlpatterns = patterns('csubgweb.views',
     url(r'^achievements/(?P<name>\w+.html)', 'achievement_list'),
     url(r'^publications/(?P<name>\w+.html)', 'publication_list'),
     url(r'^download.html', 'download_list'),
+   
     url(r'^news/(?P<newsId>\d+$)', 'news_list'),
     url(r'^(?P<name>\w+.html$)','forward'),
     url(r'^(?P<dir>\w+)/(?P<name>\w+.html$)', 'forward'),
