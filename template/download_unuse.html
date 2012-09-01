@@ -1,0 +1,51 @@
+{% include 'includes/header.html' %}
+
+  <div id="page_main" class="clearfix">
+    <div class="page-right">
+      <div class="site-nav"><span>Current Location : </span>Download</div>
+            
+	  <div class="wrap">
+			<ul class="works" id="content">
+				{% for software in software_list %}
+					<li><a href="{{software.link}}" title="点击下载" target="_blank"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}{{ software.image}}"/></span></div>
+					<div class="intro"><p>名称: {{ software.name}}</p>
+					<p>下载次数: {{ software.downloadCount }}</p>
+					<p>{{ software.functionDescription }}</P>
+					</div></div></div></a></li>
+				{% endfor %}
+				<!--
+				<li><a href="software2.html" title="点击下载"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software1.jpg"/></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="software2.html"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software2.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="software3.html"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software3.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software3.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>				
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software2.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software1.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software2.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software3.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software1.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				<li><a href="#"><div class="shadow"><div class="dbox"><div class="imgthumb"><span class="thumb_shadow_right"><img src="{{ MEDIA_URL }}images/software/software2.jpg" /></span></div><div class="intro"><p>名称: XXXX</p><p>下载次数: 15</p><p>浏览次数: 20</p></div></div></div></a></li>
+				-->
+			</ul>
+ 		</div>
+	    
+    </div>
+    <div class="page-left">
+      <div class="index-newproducts">
+        <h2><span>Tools Downloag</span></h2>
+        <div id="LeftMenu" class="ddsmoothmenu-v">
+          <ul>
+		    <li><a href="#" title="Software_1"><span>蛋白质复合物挖掘</span></a></li>
+			<li><a href="#" title="Software_1"><span>关键蛋白预测</span></a></li>
+			<li><a href="software6.html" title="Software_1"><span>Software_3</span></a></li>
+			<!--<li><a href="software2.html" title="Software_1"><span>Software_4</span></a></li>
+			<li><a href="software2.html" title="Software_1"><span>Software_5</span></a></li>
+			<li><a href="software3.html" title="Software_1"><span>Software_6</span></a></li> -->
+          </ul>
+        </div>    
+      </div>
+      
+      {% include 'includes/friendlink.html' %}
+    </div>
+  </div>
+    
+{% include 'includes/footer.html' %}
