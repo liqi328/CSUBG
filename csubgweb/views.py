@@ -90,9 +90,12 @@ def download(request, dir, filename):
     return response
 '''
 def download_list(request):
+    s_category = ''
+    if 'category' in request.GET and request.GET['category']:
+        s_category = request.GET['category']
     template_name = 'software6.html'
-    software_list = Software.objects.order_by('-downloadCount')
-    return render_to_response(template_name, {'header_menu_selected': 'download', 'software_list': software_list, 'link_list': get_friendLink()}, context_instance = RequestContext(request))
+    software_list = Software.objects.filter(category__contains = s_category).order_by('-downloadCount')
+    return render_to_response(template_name, {'header_menu_selected': 'download', 'menu_selected': s_category, 'software_list': software_list, 'link_list': get_friendLink()}, context_instance = RequestContext(request))
 
 def news_list(request,newsId):
     news_list = None

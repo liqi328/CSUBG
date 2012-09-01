@@ -1,3 +1,4 @@
+# -*- coding: cp936 -*-
 from django.db import models
 
 # Create your models here.
@@ -101,6 +102,10 @@ class Patent(models.Model):
         return self.name
   
 class Software(models.Model):
+    SOFTWARE_CHOICE = (
+            ('Protein_Complex_Mining', 'Protein_Complex_Mining'),
+            ('Key_Protein_Predict','Key_Protein_Predict'),
+    )
     name = models.CharField(max_length = '100')
     functionDescription = models.TextField(max_length = '6000')
     instruction = models.TextField(max_length = '600',null = True, blank = True)
@@ -109,6 +114,7 @@ class Software(models.Model):
     image = models.ImageField(upload_to = 'upload/software/%Y%m',blank = True, null = True)
     #link = models.FileField(upload_to = 'upload/software/homepage/%Y%m')
     link = models.CharField(max_length = '100', default='software/')
+    category = models.CharField(max_length = '80', choices = SOFTWARE_CHOICE)
     
       
 class Contact(models.Model):
